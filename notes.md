@@ -23,4 +23,4 @@
 * 在```jQuery 1.3.2```中，```:hidden```判断方式做了修改。如果他或者其任何父级元素不占据布局空间，这个元素就被认为是隐藏的。CSS的能见度属性```（visibility）```不影响这个选择器的判断（因此```$(elem).css('visibility','hidden').is(':hidden') == false ）```
 * [hidden 修改的相关资料](http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled)
 * **其他注意事项**
-    * 因为 ```:hidden() ```是一个 ```jQuery ```延伸出来的一个选择器。 并且不是的```CSS```规范的一部分, 使用```:hidden()```查询不能充分利用原生```DOM```提供的```querySelectorAll()``` 方法来提高性能。为了在现代浏览器上获得更佳的性能，请使用```.filter(":hidden")```代替。
+    * 因为 ```:hidden() ```是一个 ```jQuery ```延伸出来的一个选择器。 并且不是的```CSS```规范的一部分, 使用```:hidden()```查询不能充分利用原生```DOM```提供的```querySelectorAll()``` 方法来提高性能。为了在现代浏览器上获得更佳的性能，请使用```.filter(":hidden")```代替
