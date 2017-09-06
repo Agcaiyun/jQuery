@@ -133,3 +133,37 @@ $("#target").submit(function(data) {
 
 
 ## 事件的绑定和解绑
+
+**on()**
+* 在表单事件和键盘事件中,都可以直接给元素绑定一个处理函数,所有这类事件都是属于快捷处理,素有的快捷事件在底层的处理都是通过一个 on 方法来实现的
+* jQuery on() 方法是官方推荐的绑定事件的一个方法
+* 基本用法 : .on(evens,[selector],[data])
+* 快捷键 与 on() 事件的不同
+    * on 可以自定义事件名称
+    ```
+    $("#elem").click(function(){})  //快捷方式
+    $("#elem").on('click',function(){}) //on方式
+    ```
+    * 多个事件绑定同一个函数
+    ```
+    $("#elem").on("mouseover mouseout",function(){ });
+    ```
+    > 通过空格分离,传递不同的事件名称,,可以同时绑定多个事件
+    * 多个事件绑定不同函数
+    ```
+    $("#elem").on({
+    mouseover:function(){},  
+    mouseout:function(){}
+    });
+    ```
+    > 通过空格分离,传递不同的事件名,可以同时绑定多个事件,每一个事件执行自己的回调方法
+    * 将数据传递到处理程序
+    ```
+    function greet( event ) {
+        alert( "Hello " + event.data.name ); //Hello 慕课网
+    }
+    $( "button" ).on( "click", {
+        name: "慕课网"
+    }, greet );
+    ```
+    > 可以通过第二参数(对象),当一个事件被触发时,要传递给事件处理函数
