@@ -63,3 +63,14 @@
 * .find() 与 .children() 方法是相似的
 * .children() 只查找第一级的子元素(也就是只会查找 儿子辈 的元素,不会查找 孙子 及 孙子 后代的元素)
 * .find() 查找范围包括子节点的所有后代节点
+
+**.parent() 与 .parents()**
+* parents()和.parent()方法是相似的，但后者只是进行了一个单级的DOM树查找
+* $( "html" ).parent()方法返回一个包含document的集合，而$( "html" ).parents()返回一个空集合。
+
+**closest() 和 parents()**
+* .parents() 和 .closest() 有点相似,都是往上遍历祖辈元素,但是两者还是有区别的,否则就没有存在的意义了
+* 起始位置不同: .closest() 开始于当前元素,.parents() 开始于父元素
+* 遍历的目标不同 : .closest() 要找到指定的目标,.parents() 遍历到文档根元素,.closest() 向上查找,直到找到一个匹配的就停止查找, .parents() 一直找到根元素,并将匹配的元素加入集合
+* 结果不同: .closest() 返回的是包含零个或者一个元素的 jQuery 对象,.parents() 返回的是 包含零个或者一个或者多个元素的 jQuery 对象
+
