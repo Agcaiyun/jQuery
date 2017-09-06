@@ -299,3 +299,46 @@ $('input').click(function(){
 * .fadeOut( [ duration ],[ complete ] )
 * 通过不透明度的变化来实现所有元素的淡出效果,并在动画完成后可选地触发一个回调函数
 * 这个动画只调整元素的不透明度,也就是说 所有匹配的元素的 width 和 height 都不会发生改变
+
+
+## 动画效果
+**animate()**
+* 该方法通过 CSS 样式将元素从一个状态改变为 另一个状态.CSS属性值是逐渐改变的,这样就可以创建动画效果
+* 只有数字值可以创建动画(比如: margin: 30px),字符串值无法创建动画(比如: backgroun-color:red)
+* 数字型的样式属性值会产生渐变效果,非数字型的样式属性值会产生突变效果
+* 可以使用 "+=" "-=" 来创建相对动画(relative animations)
+* 语法 : 
+    * .animate( properties , [ duration ] , [ easing ] , [ callback ] )
+        * properties : CSS 样式使用 DOM 名称(比如: fontSize) 来设置,而非 CSS 名称(比如: font-size)
+    * .animate( properties , options )
+        * options 参数(可选,规定动画的额外选项)
+        * 可能的值为 : 
+            * duration  --      设置动画执行的时间
+            * easing    --      规定要使用的 easing 函数,过渡使用哪种缓动函数
+            * step      --      规定每个动画的每一步完成之后要执行的函数
+            * progress  --      每一次动画调用的时候会执行这个回调,就是一个进度的概念
+            * callback  --      动画完成之后会调用的回调函数
+            * queue     --      布尔值.指示是否在效果队列中放置动画.如果为false ,则动画立即开始
+            * specialEasing -- 来自 properties 参数的一个或多个 CSS 属性的映射,以及他们的对应的 easing 函数
+* **注意** : 如果多个元素执行动画,回调将在每个匹配的元素执行一次,不是作为整个动画执行一次
+    * [相关链接](http://www.w3school.com.cn/tiy/t.asp?f=jquery_eff_ani_font)
+    * 可以尝试改变动画变化需要的时间,效果会明显一些
+* width : "toggle"        --      设置为 左右隐藏
+* height : "toggle"     --      设置为 上下滑动隐藏
+* opacity : "toggle"    --      设置为 淡出淡入隐藏 
+* 常用的方式
+```
+$('#elem').animate({
+    width: 'toggle',  
+    height: 'toggle'
+  }, {
+    duration: 5000,
+    specialEasing: {
+      width: 'linear',
+      height: 'easeOutBounce'
+    },
+    complete: function() {
+      $(this).after('<div>Animation complete.</div>');
+    }
+  });
+  ```
