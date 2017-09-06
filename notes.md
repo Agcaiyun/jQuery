@@ -74,3 +74,29 @@
 * 遍历的目标不同 : .closest() 要找到指定的目标,.parents() 遍历到文档根元素,.closest() 向上查找,直到找到一个匹配的就停止查找, .parents() 一直找到根元素,并将匹配的元素加入集合
 * 结果不同: .closest() 返回的是包含零个或者一个元素的 jQuery 对象,.parents() 返回的是 包含零个或者一个或者多个元素的 jQuery 对象
 
+**.mouseenter()**
+* .mouseenter() JavaScript 事件是 IE 专有的.由于该事件在平时很有用,jQuery 的模拟这一事件,以便他可用于所有浏览器.该事件在鼠标移入到元素上时被触发.任何 HTML 元素都可以接受此事件
+* .mouseenter() 与 .mouseover() 的区别
+    * 冒泡的方式处理问题
+
+**focus focusin blur focusout**
+* focus : 当 focusable 元素获得焦点时,不支持冒泡
+* focusin 和  focus 一样,只是 focusin 支持冒泡
+* blur : 当 focusable 元素失去焦点时,不支持冒泡
+* focusout 和 blur 一样,只是 focusout 支持冒泡
+* 事件触发顺序
+    * 对于同时支持这四个事件的浏览器,事件执行顺序为 focusin > focus > focusout > blur
+
+**focusable**
+* 什么是 focusable 元素
+    *默认情况下,只有部分 HTML 元素能够获得鼠标焦点,如 input ,很大一部分 HTML 元素是不能获得鼠标焦点的 如 div ,这些能够获得鼠标焦点的元素就是 focusable 元素.
+* 要想一个元素获得焦点,可以通过三种方式
+    * 鼠标点击
+    * tab 键
+    * 调用 focus() 方法
+* 默认情况下,哪些元素是 focusable 元素
+    * window : 当页面窗口从隐藏变为前置可见时 , focus 事件就会触发
+    * 表单元素(form controllers) : input / option / textarea / button
+    * 链接元素(links) : a 标签 / area 标签 (必须要带 href 属性,包括 href 属性为空)
+    * 设置了  tabindex 属性(tabindex 值非 -1) 的元素
+    * 设置了 contenteditable = "true" 属性的元素
