@@ -79,6 +79,8 @@
 * .mouseenter() 与 .mouseover() 的区别
     * 冒泡的方式处理问题
 
+
+## 表单事件
 **focus focusin blur focusout**
 * focus : 当 focusable 元素获得焦点时,不支持冒泡
 * focusin 和  focus 一样,只是 focusin 支持冒泡
@@ -111,6 +113,8 @@ $("#target").submit(function(data) {
 });
 ```
 
+
+## 键盘事件
 **keydown**
 * keydown 事件会少一个字符是因为事件触发在前,获取输入在后,所以获取的是前面已经输入的字符,而不是keydown 时间发生时正在输入的字符
 * keyup 事件没有 keydown 的问题存在,是因为 keyup 事件发生的时候,内容已经输入了,已经获得了输入 相应的值,所以可以直接获取此次 keyup 事件输入时的文本内容
@@ -120,4 +124,12 @@ $("#target").submit(function(data) {
 * 只能获取单个字符,不能捕获组合键
 * 无法响应系统功能键(如: delete backspace)
 * 不区分小键盘和主键盘的数字字符
+* keypress 主要用来接收字母 数字等 ANSI 字符,而 keydown 和 keyup 是事件过程可以处理任何不被 keypress 识别的击键.比如: 功能键(F1 ~ F12) , 编辑键 定位键 以及 任何这些键和键盘换档键的组合等
+* 补充: 什么是 ANSI
+    * 在 ASCII 之后,由于各国语言的加入 ,ASCII 已经不能满足信息交流的需要,因此,为了能够表示其他国家的文字,各国在 ASCII 的基础上制定了自己的字符集,这些从 ANSI 标准派生的字符集被习惯的统称为 ANSI 字符集,他们正式的名称应该是 MBCS(Multi-Byte Chactacter System 即 多字节字符系统)
 
+* keydown keypress keyup 事件的区别
+    * [参考资料](http://www.jianshu.com/p/8f839f558319)
+
+
+## 事件的绑定和解绑
