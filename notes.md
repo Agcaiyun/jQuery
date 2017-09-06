@@ -36,3 +36,30 @@
 * remove()
     * 该节点与该节点所包含的所有后代节点将同时被删除(就像 吃苹果,皮 肉 都一起吃掉(假设苹果没有籽))
     * 提供传递一个筛选的表达式(expr 指的是 express (表达式)) ,删除指定合集中的元素
+
+**replaceWith(newContent) 与 replaceAll(target)**
+* replaceWith(newContent) : 用提供的内容替换集合中所有匹配的元素 并且 返回被删除元素的集合
+* .replaceAll() 与 .replaceWith() 功能类似,主要是目标和源的位置区别
+* .replaceWith() 与 .replaceAll() 方法**会删除**与节点相关联的所有数据和事件处理程序
+* .replaceWith() 方法和大部分其他 jQuery 方法一样,返回 jQuery对象,所以可以和其他方法链接使用
+* .replaceWith() 方法返回的 jQuery 对象引用的是替换前的节点,而不是通过 replaceWith/replaceAll 方法替换后的节点
+
+**小汇总**
+* .append()       --        appendTo()
+* .prepend()      --        prependTo()
+* .before()       --        insertBefore()
+* .after()        --        insertAfter()
+* .detach()
+* .remove()
+* .empty()   
+* .clone()        --        (true深拷贝;无参数 浅拷贝)
+* .replaceWith()    --        .replaceAll()
+
+**.wrapAll()**
+* .wrapAll(wrappingElement) : 给集合中匹配的元素增加一个外面包裹的 HTML 结构(所有的匹配元素在一起,一共在所有元素的外面添加一个 wrappingElement)
+* .wrapAll(function) : 一个回调函数,返回用于包裹匹配元素的 HTML内容 或 jQuery对象(是每个匹配元素外面都添加一个 function 返回的 wrappingElement,而不是所有元素外面总共一个 wrappingElement)
+
+**.find() 与 .children()**
+* .find() 与 .children() 方法是相似的
+* .children() 只查找第一级的子元素(也就是只会查找 儿子辈 的元素,不会查找 孙子 及 孙子 后代的元素)
+* .find() 查找范围包括子节点的所有后代节点
