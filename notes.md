@@ -229,3 +229,13 @@ $("a").click(function(event) {
 
 * ```.this```和```event.target```都是```dom```对象
     * 如果要使用```jquey```中的方法可以将他们转换为```jquery```对象。比如```this```和```$(this)```的使用、```event.target```和```$(event.target)```的使用；
+
+## 动画基础隐藏与显示
+**show() 与 hide()**
+* show 与 hide 方法非常常用,但是一般很少会基于这两个属性执行动画,大多数情况下还是直接操作元素的显示与隐藏为主
+* 注意事项
+    * show 与 hide 方法是修改的 display 属性,通过 visibility 属性布局的 css 的方法来单独设置
+    * 如果使用 !important 在样式中,比如: display: none !important ,如果希望使用 .show() 方法正常工作,必须使用 .css('display','block !important') 重写样式
+    * 如果让 show 与 hide 成为一个动画,那么默认执行动画会改变元素的高度,宽度,透明度
+
+## 上卷下拉效果
