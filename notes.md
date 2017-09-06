@@ -239,3 +239,63 @@ $("a").click(function(event) {
     * 如果让 show 与 hide 成为一个动画,那么默认执行动画会改变元素的高度,宽度,透明度
 
 ## 上卷下拉效果
+**.slideDown() .slideUp()**
+* .slideDown( [ duration] [,complete] )
+* 持续时间(duration) 是以毫秒为单位的.字符串 fase slow 分别表示 200ms  600ms
+* 如果提供其他任何字符串,或者这个 duration 参数被省略,那么默认使用 400ms
+
+**toggle  slideToggle  fadeToggle**
+* toggle : 对整个元素的可见样式属性进行动画过渡处理(宽度width 高度height 透明度opacity) -- 既是 切换 显示与隐藏 效果
+* slideToggle : 对元素做 高 与 透明度 的过渡处理 -- 切换 上下拉卷滚 的效果
+* fadeToggle : 对元素仅做透明度过渡处理 -- 切换淡入淡出效果
+* 测试用例代码
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ</title>
+    <style>
+        div { width: 100px; height: 100px; background: yellow; border: 1px red solid; }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <input type="button" value="yes,im ok">
+<!-- JS -->
+ 
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+ 
+$('input').click(function(){
+    $('div:eq(0)').toggle(3000)
+    $('div:eq(1)').slideToggle(3000)
+    $('div:eq(2)').fadeToggle(3000)
+})
+     
+</script>
+</body>
+</html>
+```
+
+**toggle 与 slideToggle 细节区别**
+* toggle : 动态效果为 从右至左.横向动作,toggle 通过 display 来判断切换所有匹配元素的可见性
+* slideToggle : 动态效果从下至上.竖向动作,slideToggle 通过高度变化来切换所有匹配元素的可见性
+
+**fadeToggle**
+* fadeToggle() 方法在 fadeIn()  和 fadeOut() 方法之间切换
+* 元素是淡出显示的,fadeToggle() 会使用淡入效果显示匹配的元素
+* 元素是淡入显示的,fadeToggle() 会使用淡出效果显示匹配的元素
+* **注释** : 隐藏的元素不会被完全显示(不再影响页面的布局)
+
+## 淡入淡出效果 fadeIn() fadeOut() 方法
+* 常见的淡入淡出动画的原理 : 透明度的方法,设置元素透明度为 0 ,可以让元素不可见,透明度的参数是 0 ~ 1 之间的值,通过改变这个值可以让元素有一个透明度的效果
+
+**fadeOut()**
+* fadeOut() 函数用于隐藏所有匹配的元素,并且带有 淡出 的过渡动画效果
+* 所谓"淡出" ,表示如果元素已经是隐藏状态了,那就不做任何改变;如果元素是可见的,则将其隐藏
+* .fadeOut( [ duration ],[ complete ] )
+* 通过不透明度的变化来实现所有元素的淡出效果,并在动画完成后可选地触发一个回调函数
+* 这个动画只调整元素的不透明度,也就是说 所有匹配的元素的 width 和 height 都不会发生改变
