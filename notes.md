@@ -100,3 +100,24 @@
     * 链接元素(links) : a 标签 / area 标签 (必须要带 href 属性,包括 href 属性为空)
     * 设置了  tabindex 属性(tabindex 值非 -1) 的元素
     * 设置了 contenteditable = "true" 属性的元素
+
+**form submit**
+* form 元素有默认提交表单的行为,如果通过 submit 处理的话,需要禁止浏览器的默认行为.
+* 传统的方式是调用事件对象 e.preventDefault() 来处理
+* jQuery 中,可以直接在函数中最后结尾 return false 即可
+```
+$("#target").submit(function(data) { 
+   return false; //阻止默认行为，提交表单
+});
+```
+
+**keydown**
+* keydown 事件会少一个字符是因为事件触发在前,获取输入在后,所以获取的是前面已经输入的字符,而不是keydown 时间发生时正在输入的字符
+* keyup 事件没有 keydown 的问题存在,是因为 keyup 事件发生的时候,内容已经输入了,已经获得了输入 相应的值,所以可以直接获取此次 keyup 事件输入时的文本内容
+
+**keypress**
+* keypress 与 keydown keyup 的主要区别
+* 只能获取单个字符,不能捕获组合键
+* 无法响应系统功能键(如: delete backspace)
+* 不区分小键盘和主键盘的数字字符
+
