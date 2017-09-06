@@ -40,9 +40,9 @@
 **replaceWith(newContent) 与 replaceAll(target)**
 *``` replaceWith(newContent)``` : 用提供的内容替换集合中所有匹配的元素 并且 返回被删除元素的集合
 * ```.replaceAll()``` 与``` .replaceWith()``` 功能类似,主要是目标和源的位置区别
-*``` .replaceWith()``` 与``` .replaceAll()```方法**会删除**与节点相关联的所有数据和事件处理程序
+* ``` .replaceWith()``` 与``` .replaceAll()```方法**会删除**与节点相关联的所有数据和事件处理程序
 * ```.replaceWith()``` 方法和大部分其他``` jQuery ```方法一样,返回 ```jQuery```对象,所以可以和其他方法链接使用
-*``` .replaceWith() ```方法返回的 ```jQuery ```对象引用的是替换前的节点,而不是通过 ```replaceWith/replaceAll``` 方法替换后的节点
+* ``` .replaceWith() ```方法返回的 ```jQuery ```对象引用的是替换前的节点,而不是通过 ```replaceWith/replaceAll``` 方法替换后的节点
 
 **小汇总**
 * ```.append()  ```     --        ```appendTo()```
@@ -62,42 +62,42 @@
 **.find() 与 .children()**
 * ```.find() ```与 ```.children() ```方法是相似的
 * ```.children() ```只查找第一级的子元素(也就是只会查找 儿子辈 的元素,不会查找 孙子 及 孙子 后代的元素)
-*``` .find()```查找范围包括子节点的所有后代节点
+* ``` .find()```查找范围包括子节点的所有后代节点
 
 **.parent() 与 .parents()**
 *``` parents()```和```.parent()```方法是相似的，但后者只是进行了一个单级的DOM树查找
 * ```$( "html" ).parent()```方法返回一个包含```document```的集合，而```$( "html" ).parents()```返回一个空集合。
 
 **closest() 和 parents()**
-*``` .parents()``` 和 ```.closest() ```有点相似,都是往上遍历祖辈元素,但是两者还是有区别的,否则就没有存在的意义了
+* ``` .parents()``` 和 ```.closest() ```有点相似,都是往上遍历祖辈元素,但是两者还是有区别的,否则就没有存在的意义了
 * 起始位置不同:``` .closest()``` 开始于当前元素,```.parents() ```开始于父元素
 * 遍历的目标不同 : ```.closest()``` 要找到指定的目标```.parents() ``` 遍历到文档根元素```.closest() ``` 向上查找,直到找到一个匹配的就停止查找,``` .parents() ``` 一直找到根元素,并将匹配的元素加入集合
 * 结果不同: ```.closest(``` 返回的是包含零个或者一个元素``` jQuery``` 对象,```.parents()  ```返回的是 包含零个或者一个或者多个元素的 ```jQue``` 对象
 
 **.mouseenter()**
 * ```.mouseenter() JavaScript``` 事件是``` IE``` 专有的.由于该事件在平时很有用,```jQuery``` 的模拟这一事件,以便他可用于所有浏览器.该事件在鼠标移入到元素上时被触发.任何 ```HTML``` 元素都可以接受此事件
-*``` .mouseenter() ```与 ```.mouseover() ```的区别
+* ``` .mouseenter() ```与 ```.mouseover() ```的区别
     * 冒泡的方式处理问题
 
 
 ## 表单事件
 **focus focusin blur focusout**
-*``` focus``` : 当 ```focusable``` 元素获得焦点时,不支持冒泡
-*``` focusin``` 和  ```focus ```一样,只是 ```focusin ```支持冒泡
+* ``` focus``` : 当 ```focusable``` 元素获得焦点时,不支持冒泡
+* ``` focusin``` 和  ```focus ```一样,只是 ```focusin ```支持冒泡
 * ```blur ```: 当 ```focusable``` 元素失去焦点时,不支持冒泡
-*``` focusout``` 和``` blur``` 一样,只是``` focusout ```支持冒泡
+* ``` focusout``` 和``` blur``` 一样,只是``` focusout ```支持冒泡
 * 事件触发顺序
     * 对于同时支持这四个事件的浏览器,事件执行顺序为``` focusin``` > ```focus ```> ```focusout``` > ```blur```
 
 **focusable**
 * 什么是 ```focusable``` 元素
-    *默认情况下,只有部分``` HTML``` 元素能够获得鼠标焦点,如 ```input``` ,很大一部分 ```HTML``` 元素是不能获得鼠标焦点的 如 ```div ```,这些能够获得鼠标焦点的元素就是 ```focusable ```元素.
+    * 默认情况下,只有部分``` HTML``` 元素能够获得鼠标焦点,如 ```input``` ,很大一部分 ```HTML``` 元素是不能获得鼠标焦点的 如 ```div ```,这些能够获得鼠标焦点的元素就是 ```focusable ```元素.
 * 要想一个元素获得焦点,可以通过三种方式
     * 鼠标点击
     * ```tab``` 键
     * 调用 ```focus() ```方法
 * 默认情况下,哪些元素是 ```focusable``` 元素
-    *``` window ```: 当页面窗口从隐藏变为前置可见时 ,``` focus ```事件就会触发
+    * ``` window ```: 当页面窗口从隐藏变为前置可见时 ,``` focus ```事件就会触发
     * 表单元素(```form controllers```) : ```input``` /``` option``` / ```textarea ```/``` button```
     * 链接元素(```links```) : ```a``` 标签 /``` area``` 标签 (必须要带 ```href``` 属性,包括 ```href``` 属性为空)
     * 设置了 ``` tabindex``` 属性(```tabindex ```值非 ```-1```) 的元素
@@ -128,7 +128,7 @@ $("#target").submit(function(data) {
 * 补充: 什么是 ```ANSI```
     * 在``` ASCII ```之后,由于各国语言的加入 ,```ASCII``` 已经不能满足信息交流的需要,因此,为了能够表示其他国家的文字,各国在``` ASCII``` 的基础上制定了自己的字符集,这些从 ```ANSI ```标准派生的字符集被习惯的统称为``` ANSI ```字符集,他们正式的名称应该是 ```MBCS```(```Multi-Byte Chactacter System``` 即 多字节字符系统)
 
-*``` keydown``` ```keypress```  ```keyup ```事件的区别
+* ``` keydown``` ```keypress```  ```keyup ```事件的区别
     * [参考资料](http://www.jianshu.com/p/8f839f558319)
 
 
@@ -149,6 +149,7 @@ $("#target").submit(function(data) {
     $("#elem").on("mouseover mouseout",function(){ });
     ```
     > 通过空格分离,传递不同的事件名称,,可以同时绑定多个事件
+
     * 多个事件绑定不同函数
     ```
     $("#elem").on({
@@ -156,8 +157,11 @@ $("#target").submit(function(data) {
     mouseout:function(){}
     });
     ```
+
     > 通过空格分离,传递不同的事件名,可以同时绑定多个事件,每一个事件执行自己的回调方法
-    * 将数据传递到处理程序
+
+    * 将数据传递到处理程序 
+
     ```
     function greet( event ) {
         alert( "Hello " + event.data.name ); //Hello 慕课网
@@ -166,4 +170,17 @@ $("#target").submit(function(data) {
         name: "慕课网"
     }, greet );
     ```
+
     > 可以通过第二参数(对象),当一个事件被触发时,要传递给事件处理函数
+
+    * on() 的事件委托机制 **on的高级用法**
+    ```
+    <div class="left">
+    <p class="aaron">
+        <a>目标节点</a> //点击在这个元素上
+    </p>
+    </div>
+    ```
+    操作如下: ```$("div").on("click","p",fn)```
+    *   事件绑定在最上层的 div 元素上,当用户触发在 a 元素上的事件时,事件会向上冒泡,一直会冒泡到 div 元素上.如果提供了第二个参数,那么事件在网上冒泡的过程中遇到了选择器匹配的元素,将会触发事件回调函数
+
