@@ -477,3 +477,7 @@ $('#elem').animate({
         Response.Write("Hope you live well in " & city & ". ")
     %>
     ```
+
+## W3C 测试小总结
+* jQuery html() 方法 **不适用于** HTML 和 XML 文档
+* jQuery **不是** W3C 标准
