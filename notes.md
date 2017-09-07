@@ -406,3 +406,74 @@ $('#elem').animate({
     $("li").index($("#test2"))  // 1 
     $("li").index(document.getElementById("test"))   // 1
     ```
+
+## AJAX 
+* AJAX 是与服务器交换数据的艺术,它在不重载全部页面的情况下,实现了对部分页面的更新
+* 什么是 AJAX ? 
+    * AJAX = 异步 JavaScript 和 XML (Asynchronous  JavaScript and XML)
+    * 简短的说,就是在不重载整个页面的情况下, AJAX 通过后台加载数据,并在网页中显示
+* 关于 jQuery 和 AJAX 
+    *  jQuery 提供多个与 AJAX 有关的方法
+    * 通过 jQuery AJAX 方法,能够使用 HTTP Get 和 HTTP Post 从远程服务器上请求文本 ,HTML ,XML  和 JSOM  -- 同时能够把这些外部数据直接载入网页的被选元素内
+* 如果没有 jQuery , AJAX 编程还是有些难度的
+* 编写常规的 AJAX 代码并不容易,因为不同的浏览器对 AJAX 的实现并不相同,这意味着必须编写额外的代码对浏览器进行测试.不顾现在 jQuery 团队为我们解决了这个难题,我们只需要一行简单的代码,就可以实现 AJAX 功能
+* get() 和 post() 方法
+    * jQuery get() 和 post() 方法用于通过 HTTP GET 或 POST  请求从服务器请求数据
+    * get       --      从指定的资源请求数据
+    * post      --      向指定的资源提交要处理的数据
+    * get 基本上用于服务器获取(取回) 数据.    --      get 方法可能返回缓存数据
+    * post 也可用于从服务器获取数据.不过 ,post 方法不会缓存数据,并且常用于连同请求一起发送数据
+* jQuery $.get() 方法
+    * $.get() 方法通过 HTTP GET 请求从服务器上请求数据
+    * 语法: $.get(URL, callback);
+        * 必需的 URL 参数规定希望请求的 URL 
+        * 可选的 callback 参数是请求成功后执行的函数名
+    * 下面的例子使用 $.get() 方法从服务器上的一个文件中取回数据:
+        * [完整实例](http://www.w3school.com.cn/tiy/t.asp?f=jquery_ajax_get)
+    ```
+    $("button").click(function(){
+        $.get("demo_test.asp", function(data,status){
+            alert("Data: " + data + "\nStatus: " + status) ;
+        });
+    });
+    ```
+    * $.get() 的第一个参数是我们希望请求的 URL ("demo_test.asp")
+    * 第二个参数是回调函数.第一个回调参数 存有被请求页面的内容 , 第二个回调参数存有请求的状态
+    * 提示 : 这个 asp 文件( "demo_test.asp" ) 源代码类似于 :
+        ```
+        <%
+            response.write( "This is some test from an external ASP file." )
+        %>
+        ```
+* jQuery $.post() 方法
+    * $.post() 方法通过 HTTP POST  请求从服务器上请求数据
+    * 语法 : $.post( URL, data, callback )
+        * 必需的 URL 参数规定希望请求的 URL 
+        * 可选的 data 参数规定连同请求发送的数据
+        * 可选的 callback 参数是请求成功后所执行的函数名
+    * 下面的例子使用 $.post() 连同请求一起发送数据:
+    ```
+    $("button").click(function(){
+        $.post("demo_test_post.asp",
+        {
+            name: "caiyun",
+            city: "shenyang"
+        },
+        function(){
+            alert("Data: " + data + "\nStatus : " + status);
+        });
+    });
+    ```
+    * $.post() 的第一个参数是我们希望请求的 URL ( "demo_test_post.asp" ).然后我们连同请求( name city ) 一起发送数据
+    * "demo_test_post.asp" 中的 ASP 脚本读取这些参数,对他们进行处理,然后返回结果
+    * 第三个参数是回调函数.第一个回调参数存有被请求页面的内容,而第二个参数存有请求的状态
+    * 这个 ASP 文件( "demo_test_post.asp" ) 类似这样
+    ```
+    <%
+        dim fname,city
+        fname=Request.Form("name")
+        city=Request.Form("city")
+        Response.Write("Dear " & fname & ". ")
+        Response.Write("Hope you live well in " & city & ". ")
+    %>
+    ```
